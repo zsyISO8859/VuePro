@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <!--    插值表达式支持运算-->
+    {{intvalue+1}}<br>
+    {{stringvalue +1}}<br>
+    {{intvalue+1>1?'true':'false'}}<br>
+    {{user.name}}
+    {{user.age}}
+
+    <!--    3种展示数据的方法-->
+    <hr>
+    <div>{{user.name}}</div>
+    <div v-text="user.name"></div>
+    <div v-html="user.name"></div>
+
+    <hr>
+    <!--    v-html可以解析html展示-->
+    <div>{{content}}</div>
+    <div v-text="content"></div>
+    <div v-html="content"></div>
+
+    {{num}}
+    <hr>
+    <!--    双向绑定和单向绑定-->
+    <input type="text" v-model="num">
+    <input type="text" v-bind:value="num">
+</div>
+<script>
+    var vue = new Vue({
+        //初始化vue的根节点
+        el: "#root",
+        data: {
+            intvalue: 1,
+            stringvalue: "fmjava",
+            user: {
+                name: 'asdsad',
+                age: 50
+            },
+            content: "<h1>大标题</h1>>",
+            num: 100
+        }
+    })
+</script>
+</body>
+</html>

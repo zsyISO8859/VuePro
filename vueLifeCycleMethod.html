@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+<div id="root">
+    <p>name=={{name}}</p>
+    <p>age=={{age}}</p>
+
+    <p @click="getAll">changeValueAge---{{age}}</p>
+    <p @click="getAll">changeValueName---{{name}}</p>
+    <button v-on:click="destroyTest">destroyTest</button>
+</div>
+<script>
+    var vue = new Vue({
+        //初始化vue的根节点
+        el: "#root",
+        data: {
+            name: 'asdqqq',
+            age: 15
+        },
+        methods: {
+            getAll:function (){
+                this.age = 2;
+            },
+            destroyTest:function () {
+                vue.$destroy();
+            }
+        },
+        beforeCreate: function () {
+            console.log("当Vue对象创建之前会调用")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.name)
+
+        },
+        created: function () {
+            console.log("当Vue对象创建之后会调用")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.name)
+        },
+        beforeMount: function () {
+            console.log("当数据绑定到页面之前调用")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.name)
+        },
+        mounted: function () {
+            console.log("当数据绑定到页面之后前调用")
+            console.log(this.$el)
+            console.log(this.$data)
+            console.log(this.name)
+        },
+        beforeUpdate: function () {
+            //当界面的值发生了改变之后会触发此事件
+            console.log("当数界面发生改变之前来调用")
+        },
+        updated: function () {
+            console.log("当数界面发生改变之后来调用")
+        },
+        beforeDestroy:function () {
+            console.log("当Vue对象销毁之前调用")
+        },
+        destroyed:function () {
+            console.log("当Vue对象销毁之后调用")
+        }
+    })
+</script>
+</body>
+</html>

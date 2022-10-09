@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <div v-for="(item,index) in list">
+        {{item}}----{{index}}
+    </div>
+
+    <hr>
+    <div v-for="(item,index) in objlist">
+        {{item.name}}--{{item.age}}---{{index}}
+    </div>
+
+    <hr>
+
+    <p v-for="(value,key,index) in obj">
+        {{value}}---{{key}}---{{index}}
+    </p>
+
+    <hr>
+    <p v-for="c in 4">{{c}}</p>
+</div>
+<script>
+    var vue = new Vue({
+        //初始化vue的根节点
+        el: "#root",
+        data: {
+            list: ["asd", "qqq", "qwe"],
+            objlist: [{name: "name", age: 1}, {name: "name2", age: 2}, {name: "name3", age: 3}],
+            obj:{name: "name", age: 100}
+        }
+    })
+</script>
+</body>
+</html>

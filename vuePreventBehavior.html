@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #mydiv {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="root">
+
+    <!--    2种方式阻止冒泡行为 (点击子元素 父元素的点击事件也会被触发)：
+    1 通过click的event参数的stopPropagation()方法
+    2 通过@click.prevent.stop
+    -->
+    <div id="mydiv" @click="myParentClick()">
+        <button @click.prevent.stop="myClick($event)">clickEvent</button>
+    </div>
+
+<!--    2种方式阻止默认事件-->
+    <a href="http://www.baidu.com" @click="test($event)">跳转</a>
+    <a href="http://www.baidu.com" @click.prevent="test($event)">跳转</a>
+
+</div>
+<script>
+    var vue = new Vue({
+        //初始化vue的根节点
+        el: "#root",
+        data: {
+            message: "hello vue",
+            name: "fmjava",
+            x: 0,
+            y: 0
+        },
+        methods: {
+            myClick: function (e) {
+
+                alert("myClick")
+                //e.stopPropagation()
+            },
+            myParentClick: function () {
+                alert("myParentClick")
+            },
+            test:function (e){
+                alert("阻止跳转")
+                //e.preventDefault()
+            }
+        }
+    })
+</script>
+</body>
+</html>

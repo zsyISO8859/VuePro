@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    {{message}}
+    <hr>
+    <input type="text" v-model="message">
+    <input type="text" v-model="name">
+</div>
+<script>
+    var vue = new Vue({
+        //初始化vue的根节点
+        el:"#root",
+        data:{
+            message:"hello vue",
+            name:"fmjava"
+        }
+    })
+</script>
+</body>
+</html>

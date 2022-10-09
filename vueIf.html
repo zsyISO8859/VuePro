@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <!--    页面直接不加载节点-->
+    <div v-if="false">内容</div>
+    <!--    页面有加载节点但是设置样式为display:none-->
+    <div v-show="false">内容</div>
+</div>
+<script>
+    var vue = new Vue({
+        //初始化vue的根节点
+        el: "#root",
+        data: {
+            intvalue: 1,
+            stringvalue: "fmjava",
+            user: {
+                name: 'asdsad',
+                age: 50
+            },
+            content: "<h1>大标题</h1>>",
+            num: 100
+        }
+    })
+</script>
+</body>
+</html>
